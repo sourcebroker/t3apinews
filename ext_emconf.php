@@ -1,7 +1,7 @@
 <?php
 
 $EM_CONF[$_EXTKEY] = [
-    'title' => 'Restify sample for news ext',
+    'title' => 'T3api sample for news ext',
     'description' => '',
     'category' => 'plugin',
     'author' => '',

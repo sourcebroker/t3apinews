@@ -1,4 +1,4 @@
-TCEMAIN.linkHandler.tx_restifynews_news {
+TCEMAIN.linkHandler.tx_t3apinews_news {
     handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
     label = News / Details
     configuration {

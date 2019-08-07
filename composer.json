@@ -1,7 +1,7 @@
 {
-  "name": "sourcebroker/restifynews",
+  "name": "sourcebroker/t3apinews",
   "type": "typo3-cms-extension",
-  "description": "Restify sample for news ext",
+  "description": "T3api sample for news ext",
   "authors": [
     {
       "name": "SourceBroker Team",
@@ -9,16 +9,16 @@
     }
   ],
   "require": {
-    "sourcebroker/restify": "dev-master",
+    "sourcebroker/t3api": "dev-master",
     "georgringer/news": "~7.1.0"
   },
   "autoload": {
     "psr-4": {
-      "SourceBroker\\RestifyNest\\": "Classes"
+      "SourceBroker\\T3apinews\\": "Classes"
     }
   },
   "replace": {
-    "restifynest": "self.version",
-    "typo3-ter/restifynest": "self.version"
+    "t3apinews": "self.version",
+    "typo3-ter/t3apinews": "self.version"
   }
 }

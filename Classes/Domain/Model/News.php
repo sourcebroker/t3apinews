@@ -1,19 +1,19 @@
 <?php
 
-namespace Ins\RestifyNews\Domain\Model;
+namespace SourceBroker\T3apinews\Domain\Model;
 
 use JMS\Serializer\Annotation as Serializer;
-use SourceBroker\Restify\Annotation as Restify;
-use SourceBroker\Restify\Filter\OrderFilter;
+use SourceBroker\T3api\Annotation as T3api;
+use SourceBroker\T3api\Filter\OrderFilter;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 
 /**
- * @Restify\ApiResource(
+ * @T3api\ApiResource(
  *     collectionOperations={
  *          "get"={
  *              "path"="/news/news",
  *              "normalizationContext"={
- *                  "groups"={"api_get_collection_restifynews_news"}
+ *                  "groups"={"api_get_collection_t3apinews_news"}
  *              },
  *          },
  *     },
@@ -21,7 +21,7 @@ use TYPO3\CMS\Extbase\Domain\Model\FileReference;
  *          "get"={
  *              "path"="/news/news/{id}",
  *              "normalizationContext"={
- *                  "groups"={"api_get_item_restifynews_news"}
+ *                  "groups"={"api_get_item_t3apinews_news"}
  *              },
  *          }
  *     },
@@ -31,7 +31,7 @@ use TYPO3\CMS\Extbase\Domain\Model\FileReference;
  *     }
  * )
  *
- * @Restify\ApiFilter(
+ * @T3api\ApiFilter(
  *     OrderFilter::class,
  *     properties={"uid","title"}
  * )
@@ -43,8 +43,8 @@ class News
     /**
      * @var string
      * @Serializer\Groups({
-     *     "api_get_collection_restifynews_news",
-     *     "api_get_item_restifynews_news",
+     *     "api_get_collection_t3apinews_news",
+     *     "api_get_item_t3apinews_news",
      * })
      */
     protected $title;
@@ -52,8 +52,8 @@ class News
     /**
      * @var string
      * @Serializer\Groups({
-     *     "api_get_collection_restifynews_news",
-     *     "api_get_item_restifynews_news",
+     *     "api_get_collection_t3apinews_news",
+     *     "api_get_item_t3apinews_news",
      * })
      */
     protected $alternativeTitle;
@@ -61,8 +61,8 @@ class News
     /**
      * @var string
      * @Serializer\Groups({
-     *     "api_get_collection_restifynews_news",
-     *     "api_get_item_restifynews_news",
+     *     "api_get_collection_t3apinews_news",
+     *     "api_get_item_t3apinews_news",
      * })
      */
     protected $teaser;
@@ -70,7 +70,7 @@ class News
     /**
      * @var string
      * @Serializer\Groups({
-     *     "api_get_item_restifynews_news",
+     *     "api_get_item_t3apinews_news",
      * })
      */
     protected $bodytext;
@@ -78,8 +78,8 @@ class News
     /**
      * @var \DateTime
      * @Serializer\Groups({
-     *     "api_get_collection_restifynews_news",
-     *     "api_get_item_restifynews_news",
+     *     "api_get_collection_t3apinews_news",
+     *     "api_get_item_t3apinews_news",
      * })
      */
     protected $datetime;
@@ -87,8 +87,8 @@ class News
     /**
      * @var string
      * @Serializer\Groups({
-     *     "api_get_collection_restifynews_news",
-     *     "api_get_item_restifynews_news",
+     *     "api_get_collection_t3apinews_news",
+     *     "api_get_item_t3apinews_news",
      * })
      */
     protected $author;
@@ -96,25 +96,25 @@ class News
     /**
      * @var string
      * @Serializer\Groups({
-     *     "api_get_collection_restifynews_news",
-     *     "api_get_item_restifynews_news",
+     *     "api_get_collection_t3apinews_news",
+     *     "api_get_item_t3apinews_news",
      * })
      */
     protected $authorEmail;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ins\RestifyNews\Domain\Model\Category>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SourceBroker\T3apinews\Domain\Model\Category>
      * @Serializer\Groups({
-     *     "api_get_collection_restifynews_news",
-     *     "api_get_item_restifynews_news",
+     *     "api_get_collection_t3apinews_news",
+     *     "api_get_item_t3apinews_news",
      * })
      */
     protected $categories;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ins\RestifyNews\Domain\Model\News>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SourceBroker\T3apinews\Domain\Model\News>
      * @Serializer\Groups({
-     *     "api_get_item_restifynews_news",
+     *     "api_get_item_t3apinews_news",
      * })
      */
     protected $related;
@@ -122,8 +122,8 @@ class News
     /**
      * @var string
      * @Serializer\Groups({
-     *     "api_get_collection_restifynews_news",
-     *     "api_get_item_restifynews_news",
+     *     "api_get_collection_t3apinews_news",
+     *     "api_get_item_t3apinews_news",
      * })
      */
     protected $type;
@@ -131,8 +131,8 @@ class News
     /**
      * @var string
      * @Serializer\Groups({
-     *     "api_get_collection_restifynews_news",
-     *     "api_get_item_restifynews_news",
+     *     "api_get_collection_t3apinews_news",
+     *     "api_get_item_t3apinews_news",
      * })
      */
     protected $internalurl;
@@ -140,8 +140,8 @@ class News
     /**
      * @var string
      * @Serializer\Groups({
-     *     "api_get_collection_restifynews_news",
-     *     "api_get_item_restifynews_news",
+     *     "api_get_collection_t3apinews_news",
+     *     "api_get_item_t3apinews_news",
      * })
      */
     protected $externalurl;
@@ -149,26 +149,26 @@ class News
     /**
      * @var bool
      * @Serializer\Groups({
-     *     "api_get_collection_restifynews_news",
-     *     "api_get_item_restifynews_news",
+     *     "api_get_collection_t3apinews_news",
+     *     "api_get_item_t3apinews_news",
      * })
      */
     protected $istopnews;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ins\RestifyNews\Domain\Model\Tag>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SourceBroker\T3apinews\Domain\Model\Tag>
      * @Serializer\Groups({
-     *     "api_get_collection_restifynews_news",
-     *     "api_get_item_restifynews_news",
+     *     "api_get_collection_t3apinews_news",
+     *     "api_get_item_t3apinews_news",
      * })
      */
     protected $tags;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ins\RestifyNews\Domain\Model\FileReference>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SourceBroker\T3apinews\Domain\Model\FileReference>
      * @Serializer\Groups({
-     *     "api_get_collection_restifynews_news",
-     *     "api_get_item_restifynews_news",
+     *     "api_get_collection_t3apinews_news",
+     *     "api_get_item_t3apinews_news",
      * })
      */
     protected $falMedia;
@@ -177,10 +177,10 @@ class News
     /**
      * @Serializer\VirtualProperty()
      * @Serializer\Groups({
-     *     "api_get_collection_restifynews_news",
-     *     "api_get_item_restifynews_news",
+     *     "api_get_collection_t3apinews_news",
+     *     "api_get_item_t3apinews_news",
      * })
-     * @Serializer\Type("RecordUri<'tx_restifynews_news'>")
+     * @Serializer\Type("RecordUri<'tx_t3apinews_news'>")
      */
     public function getSingleUri(): string
     {
@@ -191,8 +191,8 @@ class News
     /**
      * @Serializer\VirtualProperty()
      * @Serializer\Groups({
-     *     "api_get_collection_restifynews_news",
-     *     "api_get_item_restifynews_news",
+     *     "api_get_collection_t3apinews_news",
+     *     "api_get_item_t3apinews_news",
      * })
      * @Serializer\Type("ProcessedImage<'380', '250c'>")
      */
@@ -204,8 +204,8 @@ class News
     /**
      * @Serializer\VirtualProperty()
      * @Serializer\Groups({
-     *     "api_get_collection_restifynews_news",
-     *     "api_get_item_restifynews_news",
+     *     "api_get_collection_t3apinews_news",
+     *     "api_get_item_t3apinews_news",
      * })
      * @Serializer\Type("ProcessedImage<1280, 768>")
      */
