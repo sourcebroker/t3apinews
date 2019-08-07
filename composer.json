@@ -9,7 +9,7 @@
     }
   ],
   "require": {
-    "sourcebroker/restify": "dev-master",
+    "sourcebroker/t3api": "dev-master",
     "georgringer/news": "~7.1.0"
   },
   "autoload": {
