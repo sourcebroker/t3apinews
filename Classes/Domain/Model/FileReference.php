@@ -4,8 +4,10 @@ namespace SourceBroker\T3apinews\Domain\Model;
 
 use JMS\Serializer\Annotation as Serializer;
 
-class FileReference
-    extends \GeorgRinger\News\Domain\Model\FileReference
+/**
+ * Class FileReference
+ */
+class FileReference extends \GeorgRinger\News\Domain\Model\FileReference
 {
 
     /**

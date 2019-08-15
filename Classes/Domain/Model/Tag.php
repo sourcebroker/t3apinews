@@ -10,24 +10,14 @@ use SourceBroker\T3api\Filter\OrderFilter;
  * @T3api\ApiResource(
  *     collectionOperations={
  *          "get"={
- *              "path"="/news/tag",
- *              "normalizationContext"={
- *                  "groups"={"api_get_collection_t3apinews_tag"}
- *              },
+ *              "path"="/news/tags",
  *          },
  *     },
  *     itemOperations={
  *          "get"={
- *              "path"="/news/tag/{id}",
- *              "normalizationContext"={
- *                  "groups"={"api_get_item_t3apinews_tag"}
- *              },
+ *              "path"="/news/tags/{id}",
  *          }
  *     },
- *     attributes={
- *          "pagination_client_items_per_page"=1,
- *          "maximum_items_per_page"=30,
- *     }
  * )
  *
  * @T3api\ApiFilter(
@@ -35,15 +25,12 @@ use SourceBroker\T3api\Filter\OrderFilter;
  *     properties={"uid","title"}
  * )
  */
-class Tag
-    extends \GeorgRinger\News\Domain\Model\Tag
+class Tag extends \GeorgRinger\News\Domain\Model\Tag
 {
 
     /**
      * @var string
      * @Serializer\Groups({
-     *     "api_get_collection_t3apinews_tag",
-     *     "api_get_item_t3apinews_tag",
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })

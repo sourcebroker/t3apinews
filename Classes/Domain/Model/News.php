@@ -36,8 +36,7 @@ use TYPO3\CMS\Extbase\Domain\Model\FileReference;
  *     properties={"uid","title"}
  * )
  */
-class News
-    extends \GeorgRinger\News\Domain\Model\News
+class News extends \GeorgRinger\News\Domain\Model\News
 {
 
     /**
@@ -173,14 +172,13 @@ class News
      */
     protected $falMedia;
 
-
     /**
      * @Serializer\VirtualProperty()
      * @Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })
-     * @Serializer\Type("RecordUri<'tx_t3apinews_news'>")
+     * @Serializer\Type("RecordUri<'tx_news'>")
      */
     public function getSingleUri(): string
     {
