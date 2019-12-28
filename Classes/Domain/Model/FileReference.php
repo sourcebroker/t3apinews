@@ -2,17 +2,16 @@
 
 namespace SourceBroker\T3apinews\Domain\Model;
 
-use JMS\Serializer\Annotation as Serializer;
+use SourceBroker\T3api\Annotation as T3api;
 
 /**
  * Class FileReference
  */
 class FileReference extends \GeorgRinger\News\Domain\Model\FileReference
 {
-
     /**
      * @var string
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })
@@ -21,7 +20,7 @@ class FileReference extends \GeorgRinger\News\Domain\Model\FileReference
 
     /**
      * @var string
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_item_t3apinews_news",
      * })
      */
@@ -29,7 +28,7 @@ class FileReference extends \GeorgRinger\News\Domain\Model\FileReference
 
     /**
      * @var string
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })
@@ -38,30 +37,31 @@ class FileReference extends \GeorgRinger\News\Domain\Model\FileReference
 
     /**
      * @var string
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })
-     * @Serializer\Type("Typolink")
+     * @T3api\Serializer\Type\Typolink
      */
     protected $link;
 
     /**
      * @var int
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
+     *     "api_patch_item_t3apinews_news",
      * })
      */
     protected $showinpreview = 0;
 
     /**
-     * @Serializer\VirtualProperty()
-     * @Serializer\Groups({
+     * @T3api\Serializer\VirtualProperty()
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })
-     * @Serializer\Type("ProcessedImage<'380', '250c'>")
+     * @T3api\Serializer\Type\Image(width=380, height="250c")
      */
     public function getImageThumbnail(): int
     {
@@ -69,16 +69,15 @@ class FileReference extends \GeorgRinger\News\Domain\Model\FileReference
     }
 
     /**
-     * @Serializer\VirtualProperty()
-     * @Serializer\Groups({
+     * @T3api\Serializer\VirtualProperty()
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })
-     * @Serializer\Type("ProcessedImage")
+     * @T3api\Serializer\Type\Image()
      */
     public function getImageOriginal(): int
     {
         return $this->uid;
     }
-
 }

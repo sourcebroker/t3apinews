@@ -2,7 +2,6 @@
 
 namespace SourceBroker\T3apinews\Domain\Model;
 
-use JMS\Serializer\Annotation as Serializer;
 use SourceBroker\T3api\Annotation as T3api;
 use SourceBroker\T3api\Filter\OrderFilter;
 
@@ -30,7 +29,7 @@ class Tag extends \GeorgRinger\News\Domain\Model\Tag
 
     /**
      * @var string
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })

@@ -2,18 +2,29 @@
 
 namespace SourceBroker\T3apinews\Domain\Model;
 
-use JMS\Serializer\Annotation as Serializer;
 use SourceBroker\T3api\Annotation as T3api;
 use SourceBroker\T3api\Filter\OrderFilter;
+use SourceBroker\T3api\Filter\BooleanFilter;
+use SourceBroker\T3api\Filter\NumericFilter;
+use SourceBroker\T3api\Filter\SearchFilter;
+use SourceBroker\T3api\Filter\RangeFilter;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 
 /**
  * @T3api\ApiResource(
  *     collectionOperations={
  *          "get"={
+ *              "method"="GET",
  *              "path"="/news/news",
  *              "normalizationContext"={
  *                  "groups"={"api_get_collection_t3apinews_news"}
+ *              },
+ *          },
+ *          "post"={
+ *              "method"="POST",
+ *              "path"="/news/news",
+ *              "normalizationContext"={
+ *                  "groups"={"api_post_item_t3apinews_news"}
  *              },
  *          },
  *     },
@@ -21,13 +32,37 @@ use TYPO3\CMS\Extbase\Domain\Model\FileReference;
  *          "get"={
  *              "path"="/news/news/{id}",
  *              "normalizationContext"={
- *                  "groups"={"api_get_item_t3apinews_news"}
+ *                  "groups"={"api_get_collection_t3apinews_news"}
  *              },
- *          }
+ *          },
+ *          "patch"={
+ *              "method"="PATCH",
+ *              "path"="/news/news/{id}",
+ *              "normalizationContext"={
+ *                  "groups"={"api_patch_item_t3apinews_news"}
+ *              },
+ *          },
+ *          "put"={
+ *              "method"="PUT",
+ *              "path"="/news/news/{id}",
+ *              "normalizationContext"={
+ *                  "groups"={"api_put_item_t3apinews_news"}
+ *              },
+ *          },
+ *          "delete"={
+ *              "method"="DELETE",
+ *              "path"="/news/news/{id}",
+ *          },
  *     },
  *     attributes={
- *          "pagination_client_items_per_page"=1,
- *          "maximum_items_per_page"=30,
+ *          "pagination_client_enabled"=true,
+ *          "pagination_items_per_page"=20,
+ *          "maximum_items_per_page"=100,
+ *          "pagination_client_items_per_page"=true,
+ *          "persistence"={
+ *              "storagePid"="3,15",
+ *              "recursive"=1
+ *          }
  *     }
  * )
  *
@@ -35,31 +70,61 @@ use TYPO3\CMS\Extbase\Domain\Model\FileReference;
  *     OrderFilter::class,
  *     properties={"uid","title"}
  * )
+ * @T3api\ApiFilter(
+ *     OrderFilter::class,
+ *     properties={"pid"}
+ * )
+ *
+ * @T3api\ApiFilter(
+ *     SearchFilter::class,
+ *     properties={"title", "alternativeTitle"}
+ * )
+ *
+ * @T3api\ApiFilter(
+ *     BooleanFilter::class,
+ *     properties={"istopnews"}
+ * )
+ *
+ * @T3api\ApiFilter(
+ *     RangeFilter::class,
+ *     properties={"uid"}
+ * )
+ *
+ * @T3api\ApiFilter(
+ *     NumericFilter::class,
+ *     properties={"pid"}
+ * )
  */
 class News extends \GeorgRinger\News\Domain\Model\News
 {
 
     /**
      * @var string
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
+     *     "api_post_item_t3apinews_news",
+     *     "api_patch_item_t3apinews_news",
+     *     "api_put_item_t3apinews_news",
      * })
      */
     protected $title;
 
     /**
      * @var string
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
+     *     "api_post_item_t3apinews_news",
+     *     "api_patch_item_t3apinews_news",
+     *     "api_put_item_t3apinews_news",
      * })
      */
     protected $alternativeTitle;
 
     /**
      * @var string
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })
@@ -68,24 +133,26 @@ class News extends \GeorgRinger\News\Domain\Model\News
 
     /**
      * @var string
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_item_t3apinews_news",
+     *     "api_post_item_t3apinews_news",
      * })
      */
     protected $bodytext;
 
     /**
      * @var \DateTime
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
+     *     "api_post_item_t3apinews_news",
      * })
      */
     protected $datetime;
 
     /**
      * @var string
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })
@@ -94,7 +161,7 @@ class News extends \GeorgRinger\News\Domain\Model\News
 
     /**
      * @var string
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })
@@ -103,16 +170,19 @@ class News extends \GeorgRinger\News\Domain\Model\News
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SourceBroker\T3apinews\Domain\Model\Category>
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
+     *     "api_post_item_t3apinews_news",
+     *     "api_patch_item_t3apinews_news",
+     *     "api_put_item_t3apinews_news",
      * })
      */
     protected $categories;
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SourceBroker\T3apinews\Domain\Model\News>
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_item_t3apinews_news",
      * })
      */
@@ -120,7 +190,7 @@ class News extends \GeorgRinger\News\Domain\Model\News
 
     /**
      * @var string
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })
@@ -129,7 +199,7 @@ class News extends \GeorgRinger\News\Domain\Model\News
 
     /**
      * @var string
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })
@@ -138,7 +208,7 @@ class News extends \GeorgRinger\News\Domain\Model\News
 
     /**
      * @var string
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })
@@ -147,7 +217,7 @@ class News extends \GeorgRinger\News\Domain\Model\News
 
     /**
      * @var bool
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })
@@ -156,7 +226,7 @@ class News extends \GeorgRinger\News\Domain\Model\News
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SourceBroker\T3apinews\Domain\Model\Tag>
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })
@@ -165,34 +235,35 @@ class News extends \GeorgRinger\News\Domain\Model\News
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SourceBroker\T3apinews\Domain\Model\FileReference>
-     * @Serializer\Groups({
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
+     *     "api_patch_item_t3apinews_news",
      * })
      */
     protected $falMedia;
 
     /**
-     * @Serializer\VirtualProperty()
-     * @Serializer\Groups({
+     * @T3api\Serializer\VirtualProperty()
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })
-     * @Serializer\Type("RecordUri<'tx_news'>")
+     * @T3api\Serializer\Type\RecordUri("tx_news")
      */
-    public function getSingleUri(): string
+    public function getSingleUri()
     {
         // need to return non null value
         return '';
     }
 
     /**
-     * @Serializer\VirtualProperty()
-     * @Serializer\Groups({
+     * @T3api\Serializer\VirtualProperty()
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })
-     * @Serializer\Type("ProcessedImage<'380', '250c'>")
+     * @T3api\Serializer\Type\Image(width=380, height="250c")
      */
     public function getImageThumbnail(): ?FileReference
     {
@@ -200,12 +271,12 @@ class News extends \GeorgRinger\News\Domain\Model\News
     }
 
     /**
-     * @Serializer\VirtualProperty()
-     * @Serializer\Groups({
+     * @T3api\Serializer\VirtualProperty()
+     * @T3api\Serializer\Groups({
      *     "api_get_collection_t3apinews_news",
      *     "api_get_item_t3apinews_news",
      * })
-     * @Serializer\Type("ProcessedImage<1280, 768>")
+     * @T3api\Serializer\Type\Image(width=1280, height=768)
      */
     public function getImageLarge(): ?FileReference
     {

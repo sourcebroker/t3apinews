@@ -1,5 +1,8 @@
 {
   "name": "sourcebroker/t3apinews",
+  "license": [
+    "GPL-2.0+"
+  ],
   "type": "typo3-cms-extension",
   "description": "T3api sample for news ext",
   "authors": [
@@ -9,7 +12,8 @@
     }
   ],
   "require": {
-    "sourcebroker/t3api": "dev-master",
+    "typo3/cms-core": "^9.5",
+    "sourcebroker/t3api": "^0.1",
     "georgringer/news": "~7.1.0"
   },
   "autoload": {
