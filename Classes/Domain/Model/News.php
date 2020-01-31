@@ -94,6 +94,19 @@ use TYPO3\CMS\Extbase\Domain\Model\FileReference;
  *     NumericFilter::class,
  *     properties={"pid"}
  * )
+ *
+ * @T3api\ApiFilter(
+ *     SearchFilter::class,
+ *     properties={
+ *          "title": "partial",
+ *          "alternativeTitle": "partial",
+ *          "bodytext": "partial",
+ *          "tags.title": "partial",
+ *     },
+ *     arguments={
+ *          "parameterName": "search",
+ *     }
+ * )
  */
 class News extends \GeorgRinger\News\Domain\Model\News
 {
