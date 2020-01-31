@@ -68,7 +68,7 @@ use TYPO3\CMS\Extbase\Domain\Model\FileReference;
  *
  * @T3api\ApiFilter(
  *     OrderFilter::class,
- *     properties={"uid","title"}
+ *     properties={"uid","title","datetime"}
  * )
  * @T3api\ApiFilter(
  *     OrderFilter::class,
