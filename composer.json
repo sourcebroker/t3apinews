@@ -22,7 +22,6 @@
     }
   },
   "replace": {
-    "t3apinews": "self.version",
     "typo3-ter/t3apinews": "self.version"
   }
 }
