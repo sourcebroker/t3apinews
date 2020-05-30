@@ -2,13 +2,14 @@
 
 namespace SourceBroker\T3apinews\Domain\Model;
 
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use SourceBroker\T3api\Annotation as T3api;
 use SourceBroker\T3api\Filter\OrderFilter;
 use SourceBroker\T3api\Filter\BooleanFilter;
 use SourceBroker\T3api\Filter\NumericFilter;
 use SourceBroker\T3api\Filter\SearchFilter;
 use SourceBroker\T3api\Filter\RangeFilter;
-use TYPO3\CMS\Extbase\Domain\Model\FileReference;
+use SourceBroker\T3api\Filter\UidFilter;
 
 /**
  * @T3api\ApiResource(
@@ -70,15 +71,6 @@ use TYPO3\CMS\Extbase\Domain\Model\FileReference;
  *     OrderFilter::class,
  *     properties={"uid","title","datetime"}
  * )
- * @T3api\ApiFilter(
- *     OrderFilter::class,
- *     properties={"pid"}
- * )
- *
- * @T3api\ApiFilter(
- *     SearchFilter::class,
- *     properties={"title", "alternativeTitle"}
- * )
  *
  * @T3api\ApiFilter(
  *     BooleanFilter::class,
@@ -86,8 +78,15 @@ use TYPO3\CMS\Extbase\Domain\Model\FileReference;
  * )
  *
  * @T3api\ApiFilter(
- *     RangeFilter::class,
+ *     UidFilter::class,
  *     properties={"uid"}
+ * )
+ *
+ * @T3api\ApiFilter(
+ *     RangeFilter::class,
+ *     properties={
+ *       "datetime": "datetime"
+ *     }
  * )
  *
  * @T3api\ApiFilter(
