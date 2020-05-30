@@ -61,7 +61,7 @@ use SourceBroker\T3api\Filter\UidFilter;
  *          "maximum_items_per_page"=100,
  *          "pagination_client_items_per_page"=true,
  *          "persistence"={
- *              "storagePid"="3,15",
+ *              "storagePid"="3,6",
  *              "recursive"=1
  *          }
  *     }
