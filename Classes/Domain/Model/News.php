@@ -33,7 +33,7 @@ use SourceBroker\T3api\Filter\UidFilter;
  *          "get"={
  *              "path"="/news/news/{id}",
  *              "normalizationContext"={
- *                  "groups"={"api_get_collection_t3apinews_news"}
+ *                  "groups"={"api_get_item_t3apinews_news"}
  *              },
  *          },
  *          "patch"={
