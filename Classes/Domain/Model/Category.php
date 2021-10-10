@@ -61,7 +61,7 @@ class Category extends \GeorgRinger\News\Domain\Model\Category
      *     "api_post_item_t3apinews_category",
      * })
      */
-    protected $title;
+    protected $title = '';
 
     /**
      * @var string
@@ -70,7 +70,7 @@ class Category extends \GeorgRinger\News\Domain\Model\Category
      *     "api_get_item_t3apinews_news",
      * })
      */
-    protected $description;
+    protected $description = '';
 
     /**
      * @var \SourceBroker\T3apinews\Domain\Model\Category
@@ -88,7 +88,7 @@ class Category extends \GeorgRinger\News\Domain\Model\Category
      *     "api_get_item_t3apinews_category",
      * })
      */
-    protected $shortcut;
+    protected $shortcut = 0;
 
     /**
      * @T3api\Serializer\VirtualProperty()
