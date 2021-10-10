@@ -14,7 +14,7 @@
   "require": {
     "typo3/cms-core": "^10.4 || ^11.5",
     "sourcebroker/t3api": "dev-typo3-115-support",
-    "georgringer/news": "dev-master"
+    "georgringer/news": "^8.6.0"
   },
   "autoload": {
     "psr-4": {
