@@ -34,6 +34,6 @@ class Tag extends \GeorgRinger\News\Domain\Model\Tag
      *     "api_get_item_t3apinews_news",
      * })
      */
-    protected $title;
+    protected $title = '';
 
 }

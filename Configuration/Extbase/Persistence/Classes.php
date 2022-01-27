@@ -2,17 +2,22 @@
 
 declare(strict_types=1);
 
+use SourceBroker\T3apinews\Domain\Model\News;
+use SourceBroker\T3apinews\Domain\Model\Tag;
+use SourceBroker\T3apinews\Domain\Model\FileReference;
+use SourceBroker\T3apinews\Domain\Model\Category;
+
 return [
-    \SourceBroker\T3apinews\Domain\Model\News::class => [
+    News::class => [
         'tableName' => 'tx_news_domain_model_news',
     ],
-    \SourceBroker\T3apinews\Domain\Model\Tag::class => [
+    Tag::class => [
         'tableName' => 'tx_news_domain_model_tag',
     ],
-    \SourceBroker\T3apinews\Domain\Model\FileReference::class => [
+    FileReference::class => [
         'tableName' => 'sys_file_reference',
     ],
-    \SourceBroker\T3apinews\Domain\Model\Category::class => [
+    Category::class => [
         'tableName' => 'sys_category',
     ],
 ];

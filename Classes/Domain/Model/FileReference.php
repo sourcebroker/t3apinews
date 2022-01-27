@@ -16,7 +16,7 @@ class FileReference extends \GeorgRinger\News\Domain\Model\FileReference
      *     "api_get_item_t3apinews_news",
      * })
      */
-    protected $title;
+    protected $title = '';
 
     /**
      * @var string
@@ -24,7 +24,7 @@ class FileReference extends \GeorgRinger\News\Domain\Model\FileReference
      *     "api_get_item_t3apinews_news",
      * })
      */
-    protected $description;
+    protected $description = '';
 
     /**
      * @var string
@@ -33,7 +33,7 @@ class FileReference extends \GeorgRinger\News\Domain\Model\FileReference
      *     "api_get_item_t3apinews_news",
      * })
      */
-    protected $alternative;
+    protected $alternative = '';
 
     /**
      * @var string
@@ -43,7 +43,7 @@ class FileReference extends \GeorgRinger\News\Domain\Model\FileReference
      * })
      * @T3api\Serializer\Type\Typolink
      */
-    protected $link;
+    protected $link = '';
 
     /**
      * @var int

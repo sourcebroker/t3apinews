@@ -120,7 +120,7 @@ class News extends \GeorgRinger\News\Domain\Model\News
      *     "api_put_item_t3apinews_news",
      * })
      */
-    protected $title;
+    protected $title = '';
 
     /**
      * @var string
@@ -132,7 +132,7 @@ class News extends \GeorgRinger\News\Domain\Model\News
      *     "api_put_item_t3apinews_news",
      * })
      */
-    protected $alternativeTitle;
+    protected $alternativeTitle = '';
 
     /**
      * @var string
@@ -141,7 +141,7 @@ class News extends \GeorgRinger\News\Domain\Model\News
      *     "api_get_item_t3apinews_news",
      * })
      */
-    protected $teaser;
+    protected $teaser = '';
 
     /**
      * @var string
@@ -150,7 +150,7 @@ class News extends \GeorgRinger\News\Domain\Model\News
      *     "api_post_item_t3apinews_news",
      * })
      */
-    protected $bodytext;
+    protected $bodytext = '';
 
     /**
      * @var \DateTime
@@ -169,7 +169,7 @@ class News extends \GeorgRinger\News\Domain\Model\News
      *     "api_get_item_t3apinews_news",
      * })
      */
-    protected $author;
+    protected $author = '';
 
     /**
      * @var string
@@ -178,7 +178,7 @@ class News extends \GeorgRinger\News\Domain\Model\News
      *     "api_get_item_t3apinews_news",
      * })
      */
-    protected $authorEmail;
+    protected $authorEmail = '';
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SourceBroker\T3apinews\Domain\Model\Category>
@@ -207,7 +207,7 @@ class News extends \GeorgRinger\News\Domain\Model\News
      *     "api_get_item_t3apinews_news",
      * })
      */
-    protected $type;
+    protected $type = '';
 
     /**
      * @var string
@@ -216,7 +216,7 @@ class News extends \GeorgRinger\News\Domain\Model\News
      *     "api_get_item_t3apinews_news",
      * })
      */
-    protected $internalurl;
+    protected $internalurl = '';
 
     /**
      * @var string
@@ -225,7 +225,7 @@ class News extends \GeorgRinger\News\Domain\Model\News
      *     "api_get_item_t3apinews_news",
      * })
      */
-    protected $externalurl;
+    protected $externalurl = '';
 
     /**
      * @var bool
@@ -234,7 +234,7 @@ class News extends \GeorgRinger\News\Domain\Model\News
      *     "api_get_item_t3apinews_news",
      * })
      */
-    protected $istopnews;
+    protected $istopnews = false;
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SourceBroker\T3apinews\Domain\Model\Tag>
