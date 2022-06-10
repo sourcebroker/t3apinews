@@ -1,7 +1,7 @@
 TYPO3 Extension t3apinews
 =========================
 
-.. image:: https://poser.pugx.org/sourcebroker/t3api/v/stable
+.. image:: https://poser.pugx.org/sourcebroker/t3apinews/v/stable
    :target: https://extensions.typo3.org/extension/t3apinews/
 
 .. image:: https://img.shields.io/badge/TYPO3-11-orange.svg
