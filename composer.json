@@ -13,7 +13,7 @@
   ],
   "require": {
     "typo3/cms-core": "^10.4 || ^11.5",
-    "sourcebroker/t3api": "@dev",
+    "sourcebroker/t3api": "^1 || ^2 || @dev",
     "georgringer/news": "^8.6.0 || ^9.2.0"
   },
   "autoload": {
